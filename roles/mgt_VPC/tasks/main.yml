@@ -1,16 +1,13 @@
 ---
-# Note: None of these examples set aws_access_key, aws_secret_key, or region.
-# It is assumed that their matching environment variables are set.
+# Build Dev VPC
 
-# Basic creation example:
-      ec2_vpc:
-        state: present
-        cidr_block: 172.23.0.0/16
-        resource_tags: { "Environment":"TestCrap" }
-        region: us-west-2
-        
-# Full creation example with subnets and optional availability zones.
-# The absence or presence of subnets deletes or creates them respectively.
+- hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+
+    - name: Provision DEV VPC with Web App and DB subnets, and routes
       ec2_vpc:
         state: present
         cidr_block: 172.22.0.0/16
