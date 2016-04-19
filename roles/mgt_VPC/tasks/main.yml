@@ -1,11 +1,4 @@
 ---
-# Build Dev VPC
-
-#- hosts: localhost
-#  connection: local
-#  gather_facts: true
-
-#  tasks:
 
 - name: Provision DEV VPC with Web App and DB subnets, and routes
   ec2_vpc:
